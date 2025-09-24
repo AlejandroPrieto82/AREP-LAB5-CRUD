@@ -54,3 +54,5 @@ yarn.lock
 # =========================
 .DS_Store
 Thumbs.db
+
+src/main/resources/application-local.properties
