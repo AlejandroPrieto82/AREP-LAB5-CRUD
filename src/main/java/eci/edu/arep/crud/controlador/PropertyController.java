@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import eci.edu.arep.crud.modelo.Property;
 import eci.edu.arep.crud.servicio.PropertyService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/properties")
 public class PropertyController {

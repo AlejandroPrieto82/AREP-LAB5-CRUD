@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Propiedades</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form { margin-bottom: 20px; }
+    input, textarea { display: block; margin: 5px 0; width: 300px; padding: 5px; }
+    button { margin: 5px 0; }
+    table { border-collapse: collapse; width: 80%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Gestión de Propiedades</h1>
+
+  <h2>Agregar / Editar Propiedad</h2>
+  <form id="propertyForm">
+    <input type="hidden" id="propertyId">
+    <label>Dirección: <input type="text" id="address" required></label>
+    <label>Precio: <input type="number" id="price" step="0.01" required></label>
+    <label>Tamaño (m²): <input type="number" id="size" step="0.01" required></label>
+    <label>Descripción: <textarea id="description" required></textarea></label>
+    <button type="submit">Guardar</button>
+    <button type="button" onclick="resetForm()">Cancelar</button>
+  </form>
+
+  <h2>Lista de Propiedades</h2>
+  <table id="propertiesTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Dirección</th>
+        <th>Precio</th>
+        <th>Tamaño</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const apiUrl = "http://localhost:8080/api/properties";
+
+    // Cargar propiedades al inicio
+    window.onload = fetchProperties;
+
+    // Manejar envío del formulario
+    document.getElementById("propertyForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const id = document.getElementById("propertyId").value;
+      const property = {
+        address: document.getElementById("address").value,
+        price: parseFloat(document.getElementById("price").value),
+        size: parseFloat(document.getElementById("size").value),
+        description: document.getElementById("description").value
+      };
+
+      try {
+        if (id) {
+          // Update
+          await fetch(`${apiUrl}/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(property)
+          });
+        } else {
+          // Create
+          await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(property)
+          });
+        }
+        resetForm();
+        fetchProperties();
+      } catch (err) {
+        alert("Error guardando propiedad: " + err);
+      }
+    });
+
+    // Obtener todas las propiedades
+    async function fetchProperties() {
+      const res = await fetch(apiUrl);
+      const properties = await res.json();
+      const tbody = document.querySelector("#propertiesTable tbody");
+      tbody.innerHTML = "";
+      properties.forEach(p => {
+        const row = `
+          <tr>
+            <td>${p.id}</td>
+            <td>${p.address}</td>
+            <td>${p.price}</td>
+            <td>${p.size}</td>
+            <td>${p.description}</td>
+            <td>
+              <button onclick="editProperty(${p.id}, '${p.address}', ${p.price}, ${p.size}, '${p.description}')">Editar</button>
+              <button onclick="deleteProperty(${p.id})">Eliminar</button>
+            </td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    }
+
+    // Editar propiedad
+    function editProperty(id, address, price, size, description) {
+      document.getElementById("propertyId").value = id;
+      document.getElementById("address").value = address;
+      document.getElementById("price").value = price;
+      document.getElementById("size").value = size;
+      document.getElementById("description").value = description;
+    }
+
+    // Eliminar propiedad
+    async function deleteProperty(id) {
+      if (confirm("¿Seguro que quieres eliminar esta propiedad?")) {
+        await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+        fetchProperties();
+      }
+    }
+
+    // Resetear formulario
+    function resetForm() {
+      document.getElementById("propertyId").value = "";
+      document.getElementById("propertyForm").reset();
+    }
+  </script>
+</body>
+</html>
