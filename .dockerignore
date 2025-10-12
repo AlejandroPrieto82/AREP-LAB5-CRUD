@@ -1,6 +1,11 @@
 target
 .git
 .gitignore
-.vscode
-.idea
+Dockerfile
 *.md
+.idea
+.vscode
+*.iml
+*.log
+.mvn
+.settings
