@@ -1,4 +1,3 @@
-````markdown
 # AREP-LAB5-CRUD
 
 Sistema CRUD para la gestión de propiedades inmobiliarias. Permite crear, leer, actualizar y eliminar propiedades desde un frontend sencillo conectado a un backend Spring Boot, persistiendo datos en una base de datos MySQL en AWS RDS.
@@ -175,5 +174,3 @@ Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 [Ver video de funcionamiento](LINK_DEL_VIDEO_AQUI)
 
-```
-```
