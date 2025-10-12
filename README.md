@@ -1,3 +1,4 @@
+````markdown
 # AREP-LAB5-CRUD
 
 Sistema CRUD para la gestión de propiedades inmobiliarias. Permite crear, leer, actualizar y eliminar propiedades desde un frontend sencillo conectado a un backend Spring Boot, persistiendo datos en una base de datos MySQL en AWS RDS.
@@ -26,7 +27,7 @@ Estas instrucciones te permitirán ejecutar una copia del proyecto para desarrol
 ```bash
 git clone https://github.com/AlejandroPrieto82/AREP-LAB5-CRUD.git
 cd AREP-LAB5-CRUD
-```
+````
 
 2. Configurar la conexión a la base de datos en `src/main/resources/application.properties`:
 
@@ -121,37 +122,37 @@ curl -X DELETE http://54.167.109.69:8080/api/properties/1
 
 ## Evidence / Screenshots
 
-![Base de datos creada](image.png)
+![Base de datos creada](/img/image.png)
 **Base de datos y tabla creada**
 
-![Prueba crear propiedad](image-1.png)
+![Prueba crear propiedad](/img/image-1.png)
 **Crear propiedad**
 
-![Prueba ver propiedades](image-2.png)
+![Prueba ver propiedades](/img/image-2.png)
 **Lista de propiedades**
 
-![Ver propiedad por ID](image-4.png)
+![Ver propiedad por ID](/img/image-4.png)
 **Detalle de propiedad**
 
-![Actualizar propiedad](image-3.png)
+![Actualizar propiedad](/img/image-3.png)
 **Actualizar propiedad**
 
-![Eliminar propiedad](image-5.png)
+![Eliminar propiedad](/img/image-5.png)
 **Eliminar propiedad**
 
-![Formulario FrontEnd](image-6.png)
+![Formulario FrontEnd](/img/image-6.png)
 **Formulario frontend**
 
-![Conexión a RDS AWS](image-7.png)
+![Conexión a RDS AWS](/img/image-7.png)
 **Conexión a RDS**
 
-![Imagen del backend en EC2](image-8.png)
+![Imagen del backend en EC2](/img/image-8.png)
 **Docker backend en EC2**
 
-![Imagen ya corriendo en la instancia](image-9.png)
+![Imagen ya corriendo en la instancia](/img/image-9.png)
 **Aplicación corriendo**
 
-![Servidor responde](image-10.png)
+![Servidor responde](/img/image-10.png)
 **Endpoint responde correctamente**
 
 [IP para ver propiedades](http://54.167.109.69:8080/api/properties)
@@ -173,3 +174,6 @@ Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 ## Video de demostración
 
 [Ver video de funcionamiento](LINK_DEL_VIDEO_AQUI)
+
+```
+```
