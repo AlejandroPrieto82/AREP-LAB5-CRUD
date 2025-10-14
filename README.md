@@ -172,4 +172,5 @@ Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 ## Video de demostración
 
-[Ver video de funcionamiento](LINK_DEL_VIDEO_AQUI)
+[Ver video de funcionamiento](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/g/personal/samuel_prieto-r_mail_escuelaing_edu_co/EcAPD-m5IYtHtlRFQMkMYt8BkMQ5khkDHlCyIFHhTeeU6w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=lAs9FS)
+
